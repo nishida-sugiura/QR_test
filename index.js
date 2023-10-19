@@ -5,7 +5,7 @@ var key = params.get('key');
 
 $(function () {
     // 送信
-    $('form').submit(function () {
+    $('#form1').submit(function () {
   
         var s_code = $('input[name="serialcode"]').val();
         
@@ -16,16 +16,9 @@ $(function () {
         
   //var breed = obj.filter(function(input) {
   //return input.name.match(/breed/);});
-
-    
-        
         
     let msg={};
-        
-
-     
-
-
+    
        msg = ["code：" + s_code] ;　 //トークに送信する内容
 
         
@@ -36,10 +29,28 @@ $(function () {
         
     });
 }
- 
- 
-)
 
+
+
+
+$(function () {
+    // 送信
+    $('#form2').submit(function () {
+  
+    var s_code = $('input[name="serialcode"]').val();
+    let msg={};
+
+       msg = ["code：" + s_code] ;　 //トークに送信する内容
+        
+        sendText(String(msg)); 
+        
+        return false;
+        
+    });
+}
+
+
+)
 
 
  
