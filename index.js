@@ -3,6 +3,11 @@ var key = params.get('key');
 
 //let daytime2 = document.getElementById("textArea").value.trim();
 
+
+
+
+
+
 $(function () {
     // 送信
     $('#form1').submit(function () {
@@ -28,7 +33,7 @@ $(function () {
         return false;
         
     });
-}
+});
 
 
 
