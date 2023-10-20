@@ -36,26 +36,24 @@ $(function () {
 });
 
 
+function openQRCodeReader() {
+    liff.scanCode()
+        .then(result => {
+            if (result.value) {
+                // QRコードのスキャンが成功した場合
+                // スキャン結果を利用して何かを行う
+                console.log("QRコードスキャン結果:", result.value);
 
+                let qr_data = result.value;
+                let aaa = ["qr_data:" + qr_data];
 
-$(function () {
-    // 送信
-    $('#form2').submit(function () {
-  
-    var s_code = $('input[name="serialcode"]').val();
-    let msg={};
-
-       msg = ["code：" + s_code] ;　 //トークに送信する内容
-        
-        sendText(String(msg)); 
-        
-        return false;
-        
-    });
+                sendText(String(aaa));
+            }
+        })
+        .catch(err => {
+            console.error(err);
+        });
 }
-
-
-)
 
 
  
