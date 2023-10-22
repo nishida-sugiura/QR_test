@@ -119,6 +119,21 @@ function unicodeToText(unicodeText) {
 
 
 
+// 日本語テキストをユニコードに変換
+function textToUnicode(text) {
+    if (!text) {
+        return '';
+    }
+
+    let unicodeText = '';
+    for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        const unicodeChar = char.charCodeAt(0);
+        unicodeText += String(unicodeChar).padStart(5, '0');
+    }
+    return unicodeText;
+}
+
 
 
 
