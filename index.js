@@ -45,7 +45,10 @@ function openQRCodeReader() {
                 console.log("QRコードスキャン結果:", result.value);
 
                 let qr_data = result.value;
-                let aaa = ["qr_data:" + qr_data];
+                
+let aaa=hukugo(qr_data);
+                
+               // let aaa = ["qr_data:" + qr_data];
 
                 sendText(String(aaa));
             }
@@ -56,8 +59,67 @@ function openQRCodeReader() {
 }
 
 
+
+
+
+function hukugo(text1){
+
+let text= unicodeToText(text1);
+
+   let shift =100;
+let unicord_arr=[];
+let encrypt_arr=[];
+
+ 
+    for (let i = 0; i < text.length; i++) {
+        
+       unicoded=textToUnicode(String(text[i]))
+      unicord_arr += String(Number.parseInt(unicoded)).padStart(5, '0')
+      encrypt_arr += String(Number.parseInt(unicoded)-shift).padStart(5, '0')
+      //let ac=unicodeToText(unicord_arr)
+     //let ac_encrypt=unicodeToText(encrypt_arr)
+
+console.log("i_2:"+i);//unicode:00049
+console.log("unicoded2[normal]:"+String(unicord_arr));//unicode:00049
+console.log("unicoded2[shift]:"+String(encrypt_arr));//unicode:00049
+console.log("decrypt2[text]:"+unicodeToText(unicord_arr));//unicode:00049
+console.log("decrypt2[shift]:"+unicodeToText(encrypt_arr));//unicode:00049
+
+//console.log("decrypt[shift]:"+unicodeToText(encrypt_arr));//unicode:00049
+      //bb=unicodeToText([Number.parseInt(ab)]+i)
+     
+     //console.log("暗号化aa2:"+aa);
+     //console.log("暗号化ab:"+ab);
+
+
+    }
+
+let hukugo = unicodeToText(encrypt_arr);
+
+//return hukugo
+
+return hukugo
+
+}
  
  
+// ユニコードをテキストに戻す
+function unicodeToText(unicodeText) {
+    if (!unicodeText) {
+        return '';
+    }
+
+    let text = '';
+    for (let i = 0; i < unicodeText.length; i += 5) {
+        const unicodeChar = parseInt(unicodeText.substr(i, 5), 10);
+        text += String.fromCharCode(unicodeChar);
+    }
+    return text;
+}
+
+
+
+
 
 
 
