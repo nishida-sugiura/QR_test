@@ -46,11 +46,11 @@ function openQRCodeReader() {
 
                 let qr_data = result.value;
                 
-let aaa=hukugo(qr_data);
+let aaa=hukugo(String(qr_data));
                 
                // let aaa = ["qr_data:" + qr_data];
 
-                sendText(String(aaa));
+                sendText(aaa);
             }
         })
         .catch(err => {
@@ -78,26 +78,9 @@ let encrypt_arr=[];
       encrypt_arr += String(Number.parseInt(unicoded)-shift).padStart(5, '0')
       //let ac=unicodeToText(unicord_arr)
      //let ac_encrypt=unicodeToText(encrypt_arr)
-
-console.log("i_2:"+i);//unicode:00049
-console.log("unicoded2[normal]:"+String(unicord_arr));//unicode:00049
-console.log("unicoded2[shift]:"+String(encrypt_arr));//unicode:00049
-console.log("decrypt2[text]:"+unicodeToText(unicord_arr));//unicode:00049
-console.log("decrypt2[shift]:"+unicodeToText(encrypt_arr));//unicode:00049
-
-//console.log("decrypt[shift]:"+unicodeToText(encrypt_arr));//unicode:00049
-      //bb=unicodeToText([Number.parseInt(ab)]+i)
-     
-     //console.log("暗号化aa2:"+aa);
-     //console.log("暗号化ab:"+ab);
-
-
     }
 
 let hukugo = unicodeToText(encrypt_arr);
-
-//return hukugo
-
 return hukugo
 
 }
